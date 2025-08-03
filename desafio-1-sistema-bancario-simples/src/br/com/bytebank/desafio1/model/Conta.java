@@ -20,46 +20,6 @@ public class Conta {
 
     public Conta(){}
 
-
-    //Métodos principais
-
-    public boolean depositar (double valor){
-            this.saldo += valor;
-
-            return true;
-    }
-
-    public boolean sacar (double valor){
-
-        if(this.saldo >= valor){
-            this.saldo -= valor;
-        }
-        else{
-            return false;
-        }
-
-        return true;
-    }
-
-    public boolean transferencia(Conta destino, double valor){
-
-        if(valor <= 0){
-            System.out.println("Digite um valor maior que zero");
-            return false;
-        }
-
-        if(this.saldo < valor){
-            System.out.println("Saldo insulficiente para transferência");
-            return false;
-        }
-
-        this.saldo -= valor;
-        System.out.println(" Transferência de R$ %.2f realizada com sucesso para a conta %d\n");
-
-        return true;
-
-    }
-
     //geters e setters
     public long getNumeroDaConta() {
         return numeroDaConta;
@@ -77,7 +37,7 @@ public class Conta {
         this.saldo = saldo;
     }
 
-    //Compusição
+    //Composição
     public Cliente getTitular() {
         return titular;
     }
@@ -94,17 +54,18 @@ public class Conta {
         this.tipoConta = tipoConta;
     }
 
-
     @Override
     public String toString() {
-        String dadosConta = "--------------  Extrato ------------------\n";
-        dadosConta += "Número da Conta: " + numeroDaConta + "\n";
-        dadosConta += "Titular: " + titular.getNomeCompleto() + "\n";
-        dadosConta += "Tipo de Conta: " + tipoConta + "\n";
-        dadosConta += String.format("Saldo: R$ %.2f\n", saldo);
-        dadosConta += "---------------------------------------------------------\n";
-
-        return dadosConta;
+        String info = "========== CONTA BANCÁRIA ==========\n";
+        info += "Número da Conta: " + numeroDaConta + "\n";
+        info += "Tipo de Conta: " + tipoConta + "\n";
+        info += "----- Titular da Conta -----\n";
+        info += "Nome: " + titular.getNomeCompleto() + "\n";
+        info += "CPF: " + titular.getCpf() + "\n";
+        info += "Email: " + titular.getEmail() + "\n";
+        info += "Tipo de Cliente: " + titular.getTipoCliente() + "\n";
+        info += "====================================\n";
+        return info;
     }
 
 
