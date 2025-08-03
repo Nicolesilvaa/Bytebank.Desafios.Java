@@ -1,6 +1,6 @@
 package br.com.bytebank.desafio1.model;
 
-public class Cliente{
+public class Cliente {
 
     //Atributos
     private  String nomeCompleto;
@@ -21,7 +21,7 @@ public class Cliente{
     public Cliente(){}
 
     //Metodos
-    public String getNomeCompelto(){
+    public String getNomeCompleto(){
         return nomeCompleto;
     }
 
