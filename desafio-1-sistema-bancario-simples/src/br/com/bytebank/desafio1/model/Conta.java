@@ -97,7 +97,7 @@ public class Conta {
 
     @Override
     public String toString() {
-        String dadosConta = "-------------- Dados da Conta Bancária ------------------\n";
+        String dadosConta = "--------------  Extrato ------------------\n";
         dadosConta += "Número da Conta: " + numeroDaConta + "\n";
         dadosConta += "Titular: " + titular.getNomeCompleto() + "\n";
         dadosConta += "Tipo de Conta: " + tipoConta + "\n";
