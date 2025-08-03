@@ -56,16 +56,14 @@ public class Conta {
 
     @Override
     public String toString() {
-        String info = "========== CONTA BANCÁRIA ==========\n";
-        info += "Número da Conta: " + numeroDaConta + "\n";
-        info += "Tipo de Conta: " + tipoConta + "\n";
-        info += "----- Titular da Conta -----\n";
-        info += "Nome: " + titular.getNomeCompleto() + "\n";
-        info += "CPF: " + titular.getCpf() + "\n";
-        info += "Email: " + titular.getEmail() + "\n";
-        info += "Tipo de Cliente: " + titular.getTipoCliente() + "\n";
-        info += "====================================\n";
-        return info;
+        String dadosConta = "--------------  Extrato ------------------\n";
+        dadosConta += "Número da Conta: " + numeroDaConta + "\n";
+        dadosConta += "Titular: " + titular.getNomeCompleto() + "\n";
+        dadosConta += "Tipo de Conta: " + tipoConta + "\n";
+        dadosConta += String.format("Saldo: R$ %.2f\n", saldo);
+        dadosConta += "---------------------------------------------------------\n";
+
+        return dadosConta;
     }
 
 
