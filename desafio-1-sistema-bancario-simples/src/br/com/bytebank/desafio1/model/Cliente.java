@@ -1,5 +1,6 @@
+package br.com.bytebank.desafio1.model;
 
-class Cliente{
+public class Cliente{
 
     //Atributos
     private  String nomeCompleto;
@@ -63,11 +64,5 @@ class Cliente{
         dadosCompletos  += "-----------------------------------------------------------------\n";
         
         return dadosCompletos;
-    }
-    
-    //teste
-    public static void main(String[] args){
-        Cliente cliente1 = new Cliente("Nicole Silva", "04582652", "nicolelinda@gmail.com", "Pessoa física");
-        System.out.println(cliente1);
     }
 }
