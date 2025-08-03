@@ -1,10 +1,10 @@
 package br.com.bytebank.desafio1.model.utils;
 
 public enum TipoConta {
-    CORRENTE("Corrente"),
-    POUPANCA("Poupança"),
-    SALARIO("Salário"),
-    INVESTIMENTO("Investimento");
+    CORRENTE("Conta corrente"),
+    POUPANCA("Conta poupança"),
+    SALARIO("Conta salário"),
+    INVESTIMENTO("Conta de investimento");
 
     private final String tipo;
 
