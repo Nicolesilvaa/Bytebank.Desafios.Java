@@ -1,69 +1,93 @@
 package br.com.bytebank.desafio1.service;
 
+import br.com.bytebank.desafio1.model.Cliente;
 import br.com.bytebank.desafio1.model.Conta;
+import java.util.ArrayList;
+import java.util.List;
 
 public class contaServico {
 
-
-
-
+    private List<Conta> contas = new ArrayList<>();
 
     //Métodos principais
 
-    public boolean criarConta(Cliente titualr,){
-
-    }
-
-    public boolean buscarConta(){
-
-    }
-
-    public boolean depositar (double valor){
-        this.saldo += valor;
-
+    public boolean criarConta(Conta conta){
+        for(Conta c : contas){
+            if(c.getNumeroDaConta() == conta.getNumeroDaConta()){
+                System.out.println("Conta com esse número já existe!");
+                return false;
+            }
+        }
+        contas.add(conta);
         return true;
     }
 
-    public boolean sacar (double valor){
-
-        if(this.saldo >= valor){
-            this.saldo -= valor;
+    public Conta buscarConta(long numeroConta) {
+        for (Conta c : contas) {
+            if (c.getNumeroDaConta() == numeroConta) {
+                return c;
+            }
         }
-        else{
+        return null; // não achou
+    }
+
+    public boolean depositar(long numeroConta, double valor) {
+        Conta conta = buscarConta(numeroConta);
+        if (conta == null) {
+            System.out.println("Conta não encontrada.");
             return false;
         }
-
+        if (valor <= 0) {
+            System.out.println("Valor de depósito inválido.");
+            return false;
+        }
+        conta.setSaldo(conta.getSaldo() + valor);
+        System.out.println("Depósito realizado com sucesso.");
         return true;
     }
 
-    public boolean transferencia(Conta destino, double valor){
-
-        if(valor <= 0){
-            System.out.println("Digite um valor maior que zero");
+    public boolean sacar(long numeroConta, double valor) {
+        Conta conta = buscarConta(numeroConta);
+        if (conta == null) {
+            System.out.println("Conta não encontrada.");
             return false;
         }
-
-        if(this.saldo < valor){
-            System.out.println("Saldo insulficiente para transferência");
+        if (valor <= 0) {
+            System.out.println("Valor de saque inválido.");
             return false;
         }
-
-        this.saldo -= valor;
-        System.out.println(" Transferência de R$ %.2f realizada com sucesso para a conta %d\n");
-
+        if (conta.getSaldo() < valor) {
+            System.out.println("Saldo insuficiente.");
+            return false;
+        }
+        conta.setSaldo(conta.getSaldo() - valor);
+        System.out.println("Saque realizado com sucesso.");
         return true;
-
     }
 
-    @Override
-    public String toString() {
-        String dadosConta = "--------------  Extrato ------------------\n";
-        dadosConta += "Número da Conta: " + numeroDaConta + "\n";
-        dadosConta += "Titular: " + titular.getNomeCompleto() + "\n";
-        dadosConta += "Tipo de Conta: " + tipoConta + "\n";
-        dadosConta += String.format("Saldo: R$ %.2f\n", saldo);
-        dadosConta += "---------------------------------------------------------\n";
+    public boolean transferir(long numeroContaOrigem, long numeroContaDestino, double valor) {
+        Conta origem = buscarConta(numeroContaOrigem);
+        Conta destino = buscarConta(numeroContaDestino);
 
-        return dadosConta;
+        if (origem == null || destino == null) {
+            System.out.println("Conta origem ou destino não encontrada.");
+            return false;
+        }
+        if (valor <= 0) {
+            System.out.println("Valor inválido para transferência.");
+            return false;
+        }
+        if (origem.getSaldo() < valor) {
+            System.out.println("Saldo insuficiente na conta origem.");
+            return false;
+        }
+
+        origem.setSaldo(origem.getSaldo() - valor);
+        destino.setSaldo(destino.getSaldo() + valor);
+        System.out.println(String.format("Transferência de R$ %.2f realizada com sucesso.", valor));
+        return true;
     }
+
+
+
 }
