@@ -2,6 +2,8 @@ package br.com.bytebank.desafio1.model;
 
 import br.com.bytebank.desafio1.utils.TipoConta;
 
+import java.util.Random;
+
 public class Conta {
 
     private  long numeroDaConta;
@@ -10,12 +12,14 @@ public class Conta {
     private TipoConta tipoConta;
 
 
-    public Conta (long numeroDaConta, double saldo, Cliente titular, TipoConta tipoConta){
+    public Conta (double saldo, Cliente titular, TipoConta tipoConta){
 
-      this.numeroDaConta = numeroDaConta;
-      this.saldo = saldo;
-      this.titular = titular;
-      this.tipoConta = tipoConta;
+        Random random = new Random();
+        numeroDaConta = random.nextLong(1000);
+
+        this.saldo = saldo;
+        this.titular = titular;
+        this.tipoConta = tipoConta;
     }
 
     public Conta(){}
@@ -25,9 +29,6 @@ public class Conta {
         return numeroDaConta;
     }
 
-    public void setNumeroDaConta(long numeroDaConta){
-        this.numeroDaConta = numeroDaConta;
-    }
 
     public double getSaldo() {
         return saldo;

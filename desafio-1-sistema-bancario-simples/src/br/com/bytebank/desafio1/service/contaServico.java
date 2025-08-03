@@ -4,6 +4,9 @@ import br.com.bytebank.desafio1.model.Cliente;
 import br.com.bytebank.desafio1.model.Conta;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
+import static java.lang.Math.random;
 
 public class contaServico {
 
@@ -12,9 +15,11 @@ public class contaServico {
     //Métodos principais
 
     public boolean criarConta(Conta conta){
+
+        //Analisando por cpf
         for(Conta c : contas){
-            if(c.getNumeroDaConta() == conta.getNumeroDaConta()){
-                System.out.println("Conta com esse número já existe!");
+            if(c.getTitular().getCpf().equals(conta.getTitular().getCpf())){
+                System.out.println("Já existe uma conta cadastrada nesse CPF !");
                 return false;
             }
         }

@@ -46,9 +46,6 @@ public class Main {
 
                     Cliente cliente = new Cliente(nome, cpf, email, tipoCliente);
 
-                    System.out.print("Número da conta: ");
-                    long numero = scanner.nextLong();
-
                     System.out.print("Saldo inicial: ");
                     double saldo = scanner.nextDouble();
 
@@ -58,6 +55,7 @@ public class Main {
                     System.out.println("3 - SALARIO");
                     System.out.println("4 - INVESTIMENTO");
                     System.out.print("Escolha a opção: ");
+
                     int tipo = scanner.nextInt();
                     scanner.nextLine(); // limpar buffer
 
@@ -66,12 +64,15 @@ public class Main {
                         case 1:
                             tipoConta = TipoConta.CORRENTE;
                             break;
+
                         case 2:
                             tipoConta = TipoConta.POUPANCA;
                             break;
+
                         case 3:
                             tipoConta = TipoConta.SALARIO;
                             break;
+
                         case 4:
                             tipoConta = TipoConta.INVESTIMENTO;
                             break;
@@ -80,11 +81,15 @@ public class Main {
                             tipoConta = TipoConta.CORRENTE;
                     }
 
-                    Conta novaConta = new Conta(numero, saldo, cliente, tipoConta);
+                    Conta novaConta = new Conta(saldo, cliente, tipoConta);
 
                     if (servico.criarConta(novaConta)) {
+
                         System.out.println("\nConta criada com sucesso!");
+                        System.out.println(novaConta);
+
                     } else {
+
                         System.out.println("\nJá existe uma conta com esse número.");
                     }
                     break;
@@ -120,7 +125,7 @@ public class Main {
 
                 case 5:
                     System.out.println("\n-------- Dados da Conta -------------");
-                    System.out.print("Número da conta: ");
+                    System.out.print("Número do CPF: ");
                     long numeroConsulta = scanner.nextLong();
                     Conta conta = servico.buscarConta(numeroConsulta);
                     if (conta != null) {
