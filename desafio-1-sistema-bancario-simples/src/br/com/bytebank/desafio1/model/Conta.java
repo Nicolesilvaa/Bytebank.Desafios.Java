@@ -1,16 +1,16 @@
 package br.com.bytebank.desafio1.model;
 
-import br.com.bytebank.desafio1.model.utils.TipoConta;
+import br.com.bytebank.desafio1.utils.TipoConta;
 
 public class Conta {
 
     private  long numeroDaConta;
     private double saldo;
-    private Cliente titular;
+    private String titular;
     private TipoConta tipoConta;
 
 
-    public Conta (long numeroDaConta, double saldo, Cliente titular, TipoConta tipoConta){
+    public Conta (long numeroDaConta, double saldo, String titular, TipoConta tipoConta){
 
       this.numeroDaConta = numeroDaConta;
       this.saldo = saldo;
@@ -37,11 +37,11 @@ public class Conta {
     }
 
     //Compusição
-    public Cliente getTitular() {
+    public String getTitular() {
         return titular;
     }
 
-    public void setTitular(Cliente titular) {
+    public void setTitular(String titular) {
         this.titular = titular;
     }
 
