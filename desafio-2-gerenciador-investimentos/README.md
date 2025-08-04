@@ -1,7 +1,7 @@
-# 📊 Desafio 2: Gerenciador de Investimentos
+#  Desafio 2: Gerenciador de Investimentos
 
 
-### 🎯 Objetivo
+### Objetivo
 
 Criar um sistema de controle de investimentos dentro do ByteBank. O cliente poderá aplicar e resgatar valores de diferentes tipos de investimento.
 

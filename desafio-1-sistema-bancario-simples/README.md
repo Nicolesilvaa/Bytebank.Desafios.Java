@@ -1,5 +1,5 @@
 
-# 🏦 Desafio 1: Sistema Bancário Simples
+# Desafio 1: Sistema Bancário Simples
 
 ### Objetivo:
 
@@ -8,7 +8,7 @@ Criar um sistema básico de banco digital em Java, com funcionalidades de cadast
 ---
 ## 📋 Funcionalidades :
 
-**1. Criar conta**
+### Criar conta
 - O usuário informa seus dados pessoais (nome, CPF, email e tipo de cliente).
 
 - Seleciona o tipo de conta desejado: Corrente, Poupança, Salário ou Investimento.
@@ -20,7 +20,7 @@ Criar um sistema básico de banco digital em Java, com funcionalidades de cadast
 - A conta é criada apenas se não houver uma conta existente com o mesmo CPF.
 
 
-**2. Depositar**
+### Depositar
 
 - Permite ao usuário realizar um depósito em uma conta existente.
 
@@ -28,8 +28,7 @@ Criar um sistema básico de banco digital em Java, com funcionalidades de cadast
 
 - Caso o número da conta seja válido e o valor positivo, o saldo da conta é atualizado.
 
-**3. Sacar**
-
+### Sacar
 - Permite o saque de um valor a partir de uma conta existente.
 
 - _Requer:_
@@ -43,8 +42,7 @@ Criar um sistema básico de banco digital em Java, com funcionalidades de cadast
 
 - Atualiza o saldo e informa o resultado da operação
 
-**4. Transferir**
-
+### Transferir
 - Permite transferir valores entre duas contas existentes.
 
 - _Requer:_
@@ -58,8 +56,7 @@ Criar um sistema básico de banco digital em Java, com funcionalidades de cadast
     - Saldo suficiente na conta de origem
     - Atualiza os saldos das duas contas
 
-**5. Ver dados da conta**
-
+### Ver dados da conta
 - Permite consultar os dados de uma conta informando seu número.
 - Exibe:
     - Número da conta
@@ -68,7 +65,7 @@ Criar um sistema básico de banco digital em Java, com funcionalidades de cadast
     - Saldo atual
 - Caso a conta não seja encontrada, informa o erro.
 
-**0. Sair**
+### Sair
 - Encerra o sistema com uma mensagem de despedida.
 
 ---
@@ -91,7 +88,7 @@ Criar um sistema básico de banco digital em Java, com funcionalidades de cadast
   > Toda interação com o usuário ocorre apenas na `Main`.
 
 ---
-🧠 Conceitos aplicados
+## 🧠 Conceitos aplicados
 
 - Programação orientada a objetos (POO)
 
