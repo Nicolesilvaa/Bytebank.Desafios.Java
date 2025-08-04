@@ -20,4 +20,5 @@ public enum TipoConta {
     public String toString() {
         return tipo; 
     }
+
 }
