@@ -1,6 +1,6 @@
 #  ByteBank – Desafios Java em Contexto Bancário 👾
 
-Este repositório contém uma coleção de desafios práticos em Java, todos ambientados no contexto de um banco digital fictício chamado **ByteBank**.
+Este repositório contém uma coleção de desafios práticos em Java, todos no contexto de um banco digital fictício chamado **ByteBank**.
 
 **Objetivo**: Praticar os principais conceitos da linguagem Java com exercícios autênticos, realistas e progressivos.
 
