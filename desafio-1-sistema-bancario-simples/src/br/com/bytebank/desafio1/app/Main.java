@@ -82,52 +82,85 @@ public class Main {
                     }
 
                     Conta novaConta = new Conta(saldo, cliente, tipoConta);
+                    boolean criada = servico.criarConta(novaConta);
 
-                    if (servico.criarConta(novaConta)) {
-
+                    if (criada) {
                         System.out.println("\nConta criada com sucesso!");
                         System.out.println(novaConta);
 
                     } else {
-
                         System.out.println("\nJá existe uma conta com esse número.");
                     }
+
                     break;
 
                 case 2:
                     System.out.println("\n------------ Depositar -------------");
+
                     System.out.print("Número da conta para depósito: ");
                     long numeroDep = scanner.nextLong();
+
                     System.out.print("Valor do depósito: ");
                     double valorDep = scanner.nextDouble();
-                    servico.depositar(numeroDep, valorDep);
+
+                    boolean deposito = servico.depositar(numeroDep, valorDep);
+                    if(deposito){
+                        System.out.println("Depósito de R$ %.2f realizado com sucesso na conta %d.%n\", valorDep, numeroDep)");
+                    }
+                    else{
+                        System.out.println("Depósito falhou. Verifique o número da conta ou valor.");
+                    }
+
                     break;
 
                 case 3:
                     System.out.println("\n--- Sacar ---");
+
                     System.out.print("Número da conta para saque: ");
                     long numeroSaque = scanner.nextLong();
+
                     System.out.print("Valor do saque: ");
                     double valorSaque = scanner.nextDouble();
-                    servico.sacar(numeroSaque, valorSaque);
+
+                    boolean sacar = servico.sacar(numeroSaque, valorSaque);
+                    if(sacar){
+                        System.out.println("Saque de R$ %.2f realizado com sucesso na conta %d.%n\", numeroSaque, valorSaque)");
+                    }
+                    else{
+                        System.out.println("Saque não realizado. Verifique o saldo ou número da conta.");
+                    }
+
                     break;
 
                 case 4:
                     System.out.println("\n---------- Transferência -----------");
+
                     System.out.print("Número da conta de origem: ");
                     long origem = scanner.nextLong();
                     System.out.print("Número da conta de destino: ");
+
                     long destino = scanner.nextLong();
                     System.out.print("Valor da transferência: ");
                     double valor = scanner.nextDouble();
-                    servico.transferir(origem, destino, valor);
+
+                    boolean transferencia = servico.transferir(origem, destino, valor);
+                    if(transferencia) {
+                        System.out.printf("Transferência de R$ %.2f da conta %d para a conta %d realizada com sucesso.%n", valor, origem, destino);
+                    }
+                    else {
+                        System.out.println("Falha na transferência. Verifique o saldo ou os números das contas.");
+                    }
+
                     break;
 
                 case 5:
                     System.out.println("\n-------- Dados da Conta -------------");
-                    System.out.print("Número do CPF: ");
+
+                    System.out.print("Número da conta: ");
                     long numeroConsulta = scanner.nextLong();
+
                     Conta conta = servico.buscarConta(numeroConsulta);
+
                     if (conta != null) {
                         System.out.println(conta);
                     } else {
