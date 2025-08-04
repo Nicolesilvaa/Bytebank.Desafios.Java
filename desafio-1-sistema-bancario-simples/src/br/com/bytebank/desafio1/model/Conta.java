@@ -15,7 +15,7 @@ public class Conta {
     public Conta (double saldo, Cliente titular, TipoConta tipoConta){
 
         Random random = new Random();
-        numeroDaConta = random.nextLong(1000);
+        numeroDaConta = random.nextLong(100_000);
 
         this.saldo = saldo;
         this.titular = titular;
@@ -66,7 +66,5 @@ public class Conta {
 
         return dadosConta;
     }
-
-
 
 }
