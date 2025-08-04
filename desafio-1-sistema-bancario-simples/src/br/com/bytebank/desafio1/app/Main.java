@@ -105,7 +105,7 @@ public class Main {
 
                     boolean deposito = servico.depositar(numeroDep, valorDep);
                     if(deposito){
-                        System.out.println("Depósito de R$ %.2f realizado com sucesso na conta %d.%n\", valorDep, numeroDep)");
+                        System.out.printf("Depósito de R$ %.2f realizado com sucesso na conta %d.%n\", valorDep, numeroDep)");
                     }
                     else{
                         System.out.println("Depósito falhou. Verifique o número da conta ou valor.");
@@ -124,7 +124,7 @@ public class Main {
 
                     boolean sacar = servico.sacar(numeroSaque, valorSaque);
                     if(sacar){
-                        System.out.println("Saque de R$ %.2f realizado com sucesso na conta %d.%n\", numeroSaque, valorSaque)");
+                        System.out.printf("Saque de R$ %.2f realizado com sucesso na conta %d.%n\", numeroSaque, valorSaque)");
                     }
                     else{
                         System.out.println("Saque não realizado. Verifique o saldo ou número da conta.");
