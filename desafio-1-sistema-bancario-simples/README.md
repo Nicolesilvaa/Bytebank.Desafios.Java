@@ -1,6 +1,8 @@
 
 # Desafio 1: Sistema Bancário Simples
 
+**Status:** Concluído ✔️
+
 ### Objetivo:
 
 Criar um sistema básico de banco digital em Java, com funcionalidades de cadastro de clientes e operações bancárias como saque, depósito e transferência.
