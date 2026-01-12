@@ -5,6 +5,7 @@ import br.com.bytebank.desafio1.model.Conta;
 import br.com.bytebank.desafio1.service.ContaServico;
 import br.com.bytebank.desafio1.utils.TipoConta;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -23,6 +24,7 @@ public class Main {
             System.out.println("3. Sacar");
             System.out.println("4. Transferir");
             System.out.println("5. Ver dados da conta");
+            System.out.println("6. Listar todas as contas");
             System.out.println("0. Sair");
             System.out.print("Escolha uma opção: ");
 
@@ -169,6 +171,20 @@ public class Main {
                     }
                     break;
 
+                case 6:
+                    System.out.println("\n-------- Contas existentes -------------");
+                    List<Conta> todasContas = ContaServico.listarContas();
+
+                    if (todasContas.isEmpty()) {
+                        System.out.println("Nenhuma conta cadastrada.");
+                    } else {
+                        for (Conta contas : todasContas) {
+                            System.out.println(contas);
+                        }
+                    }
+                    System.out.println("----------------------------------------");
+                    break;
+
                 case 0:
                     System.out.println("Encerrando o sistema. Até logo!");
                     break;
@@ -182,7 +198,6 @@ public class Main {
         scanner.close();
 
 
-        // Teste
 
 
     }

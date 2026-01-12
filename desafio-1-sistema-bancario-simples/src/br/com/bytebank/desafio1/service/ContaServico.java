@@ -1,5 +1,6 @@
 package br.com.bytebank.desafio1.service;
 
+import br.com.bytebank.desafio1.exceptions.ContaInexistenteException;
 import br.com.bytebank.desafio1.exceptions.SaldoInsuficienteException;
 import br.com.bytebank.desafio1.exceptions.ValorInvalidoException;
 import br.com.bytebank.desafio1.model.Conta;
@@ -8,7 +9,12 @@ import java.util.List;
 
 public class ContaServico {
 
-    private List<Conta> contas = new ArrayList<>();
+    private static List<Conta> contas = new ArrayList<>();
+
+
+    public static List<Conta> listarContas() {
+        return new ArrayList<>(contas); // Retorna cópia para segurança
+    }
 
     public boolean criarConta(Conta conta){
 
@@ -22,14 +28,15 @@ public class ContaServico {
         return true;
     }
 
-    public Conta buscarConta(long numeroConta) {
+    public Conta buscarConta(long numeroConta)  throws ContaInexistenteException {
 
         for (Conta c : contas) {
             if (c.getNumeroDaConta() == numeroConta) {
                 return c;
             }
         }
-        return null;
+
+        throw new ContaInexistenteException("Conta inexistente.");
     }
 
 
@@ -37,7 +44,7 @@ public class ContaServico {
 
         Conta conta = buscarConta(numeroConta);
 
-        if (conta == null || valor <= 0){
+        if ( valor <= 0){
             throw  new ValorInvalidoException( "Valor inválido. Não foi possível depositar");
         }
 
@@ -46,13 +53,17 @@ public class ContaServico {
         return true;
     }
 
-    public boolean sacar(long numeroConta, double valor) throws SaldoInsuficienteException {
+    public boolean sacar(long numeroConta, double valor) throws SaldoInsuficienteException, ValorInvalidoException {
 
         Conta conta = buscarConta(numeroConta);
 
-        if (conta == null || valor <= 0 || conta.getSaldo() < valor) {
+        if (conta.getSaldo() < valor) {
             throw  new SaldoInsuficienteException("Saldo insuficiente. Não foi possível realizar o saque");
         }
+        if (valor <= 0 ){
+            throw  new ValorInvalidoException("Este valor é inválido. Tente novamente");
+        }
+
         conta.setSaldo(conta.getSaldo() - valor);
 
         return true;
@@ -63,8 +74,15 @@ public class ContaServico {
         Conta origem = buscarConta(origemNumero);
         Conta destino = buscarConta(destinoNumero);
 
-        if (origem == null || destino == null || valor <= 0 || origem.getSaldo() < valor){
+
+        if (origemNumero == destinoNumero) {
+            return false;
+        }
+        if (origem == null || origem.getSaldo() < valor){
             throw  new SaldoInsuficienteException("Saldo insuficiente. Não foi possível realizar a transferência");
+        }
+        if (valor <= 0 ){
+            throw  new ValorInvalidoException("Este valor é inválido. Tente novamente");
         }
         origem.setSaldo(origem.getSaldo() - valor);
         destino.setSaldo(destino.getSaldo() + valor);

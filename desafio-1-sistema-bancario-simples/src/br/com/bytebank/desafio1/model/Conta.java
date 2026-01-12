@@ -24,7 +24,6 @@ public class Conta {
 
     public Conta(){}
 
-    //geters e setters
     public long getNumeroDaConta() {
         return numeroDaConta;
     }
@@ -38,7 +37,6 @@ public class Conta {
         this.saldo = saldo;
     }
 
-    //Composição
     public Cliente getTitular() {
         return titular;
     }

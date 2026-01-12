@@ -2,14 +2,12 @@ package br.com.bytebank.desafio1.model;
 
 public class Cliente {
 
-    //Atributos
     private  String nomeCompleto;
     private  String cpf;
     private  String email;
     private  String tipoCliente;
 
 
-    //Construtor
     public Cliente(String nomeCompleto, String cpf, String email, String tipoCliente) {
         this.nomeCompleto = nomeCompleto;
         this.cpf = cpf;
@@ -20,7 +18,6 @@ public class Cliente {
     //Construtor vazio por boa prática
     public Cliente(){}
 
-    //Metodos
     public String getNomeCompleto(){
         return nomeCompleto;
     }
