@@ -16,7 +16,7 @@ public class Cdb extends ProdutoInvestimento {
 
     @Override
     public double calcularRendimentoMensal() {
-        double taxaMensal = Math.pow(1 + cdiAnual, 1.0/12.0) - 1;
+        double taxaMensal = calcularTaxaMensal();
         return getValorAtual() * taxaMensal;
     }
 
@@ -25,6 +25,10 @@ public class Cdb extends ProdutoInvestimento {
         double taxaMensal = Math.pow(1 + cdiAnual, 1.0/12.0) - 1;
         double valorFinal = getValorAtual() * Math.pow(1 + taxaMensal, meses);
         return valorFinal - getValorAtual();
+    }
+
+    private double calcularTaxaMensal() {
+        return Math.pow(1 + cdiAnual, 1.0/12.0) - 1;
     }
 
 
