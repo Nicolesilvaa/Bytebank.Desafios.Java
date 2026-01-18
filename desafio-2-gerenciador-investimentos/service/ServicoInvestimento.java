@@ -6,6 +6,6 @@ import br.com.bytebank.desafio1.utils.TipoInvestimento;
 
 public interface ServicoInvestimento {
 
-    void aplicar(Conta conta, TipoInvestimento tipoInvestimento, double valor);
-    double resgatar(Cliente cliente, TipoInvestimento tipoInvestimento, double valor);
+    void aplicar(Conta conta, double valor);
+    double resgatar(Conta conta, double valor);
 }
