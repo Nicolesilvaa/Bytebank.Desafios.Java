@@ -9,16 +9,19 @@ public enum TipoInvestimento {
     private final String tipo;
 
     TipoInvestimento(String tipo) {
+
         this.tipo = tipo;
     }
 
     public String getTipo() {
+
         return tipo;
     }
 
     @Override
     public String toString() {
-        return tipo; 
+
+        return tipo;
     }
 
 }
