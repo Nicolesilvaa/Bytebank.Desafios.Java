@@ -1,5 +1,5 @@
 
-# Desafio 1: Sistema Bancário Simples
+Sistema Bancário Simples
 
 **Status:** Concluído ✔️
 
