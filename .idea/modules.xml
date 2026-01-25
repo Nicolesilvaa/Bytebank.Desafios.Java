@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/desafio-2-gerenciador-investimentos.iml" filepath="$PROJECT_DIR$/desafio-2-gerenciador-investimentos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Bytebank.Desafios.Java.iml" filepath="$PROJECT_DIR$/.idea/Bytebank.Desafios.Java.iml" />
     </modules>
   </component>
 </project>
